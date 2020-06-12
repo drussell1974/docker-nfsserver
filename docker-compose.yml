@@ -6,6 +6,6 @@ services:
                 ports:
                         - 2049:2049
                 environment:
-                        - NFS_IPADDR_ALLOWED:${NFS_IPADDR_ALLOWED}
+                        - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                 volumes:
                         - "/media/dave/My\ Passport/home/:/mnt/nfs_share"
