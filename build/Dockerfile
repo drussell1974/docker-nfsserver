@@ -12,5 +12,4 @@ COPY docker-entrypoint.sh .
 
 ENTRYPOINT "/usr/nfs_server/docker-entrypoint.sh"
 
-#vOLUME /mnt/nfs_share
-
+EXPOSE 2049
