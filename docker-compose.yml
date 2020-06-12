@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 services:
         nfs_server:
                 build: ./build
@@ -8,4 +8,4 @@ services:
                 environment:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                 volumes:
-                        - "/media/dave/My\ Passport/home/:/mnt/nfs_share"
+                        - ${NFS_SHARE_HOST_DIR}:/mnt/nfs_share

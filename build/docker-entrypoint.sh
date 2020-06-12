@@ -10,6 +10,10 @@ echo "/mnt/nfs_share ${NFS_IPADDR_ALLOWED}(rw,sync,no_subtree_check)" > /etc/exp
 
 exportfs -a && service nfs-kernel-server reload
 
+echo "Content of /mnt/nfs_share directory... (should be mapped using volume) "
+
+ls -l /mnt/nfs_share
+
 # prevent docker from exiting
 
 echo "keep alive"
