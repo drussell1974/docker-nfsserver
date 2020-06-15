@@ -3,6 +3,8 @@ services:
         nfs_server:
                 build: ./build
                 image: drussell1974/nfs-server
+                external_links:
+                        - ldap_server
                 ports:
                         - 2049:2049
                 environment:
