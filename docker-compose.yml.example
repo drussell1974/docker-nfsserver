@@ -11,9 +11,6 @@ services:
                         - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
                         - NFS_HOME_CONT=${NFS_HOME_CONT}
                 volumes:
-                        - nfs-server_public:${NFS_PUBLIC_CONT}
-                        - nfs-server_home:${NFS_HOME_CONT}
-volumes:
-        nfs-server_public:
-        nfs-server_home:
+                        - ./nfs_share/public:${NFS_PUBLIC_CONT}
+                        - ./nfs_share/home:${NFS_HOME_CONT}
 
