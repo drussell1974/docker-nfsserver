@@ -14,7 +14,7 @@ echo "docker-entrypoint.sh: allowing ${NFS_IPADDR_ALLOWED} to ${NFS_HOME_CONT} i
 echo "${NFS_HOME_CONT} ${NFS_IPADDR_ALLOWED}(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 
 # disable version 4 of nfs
-if [ ${NFS_DISABLE_V4-:false} = true ];then
+if [ ${NFS_DISABLE_V4:-false} = true ];then
 	echo "docker-entrypoint.sh: disabling nfs version 4...\n"
 	sed -i 's/RPCMOUNTDOPTS="--manage-gids"/RPCMOUNTDOPTS="--manage-gids --no-nfs-version 4"/' /etc/default/nfs-kernel-server
 fi

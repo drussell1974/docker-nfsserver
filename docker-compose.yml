@@ -11,6 +11,7 @@ services:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                         - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
                         - NFS_HOME_CONT=${NFS_HOME_CONT}
+                        - NFS_DISABLE_V4=${NFS_DISABLE_V4}
                 volumes:
                         - ./nfs_share/public:${NFS_PUBLIC_CONT}
                         - ./nfs_share/home:${NFS_HOME_CONT}
