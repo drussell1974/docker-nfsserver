@@ -1,7 +1,7 @@
 version: "3"
 services:
         nfs_server:
-                image: drussell1974/nfs-server:v0.0.6-alpha
+                image: drussell1974/nfs-server:v0.0.9-alpha
                 external_links:
                         - ldap_server
                 ports:
@@ -9,8 +9,8 @@ services:
                 environment:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                 volumes:
-                        - nfs-server_public:/mnt/nfs_share/public
-                        - nfs-server_home:/mnt/nfs_share/home
+                        - nfs-server_public:/usr/nfs_server/nfs_share/public
+                        - nfs-server_home:/usr/nfs_server/nfs_share/home
 volumes:
         nfs-server_public:
         nfs-server_home:
