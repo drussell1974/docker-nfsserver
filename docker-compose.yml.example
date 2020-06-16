@@ -1,7 +1,6 @@
 version: "3"
 services:
         nfs_server:
-                build: ./build
                 image: drussell1974/nfs-server
                 external_links:
                         - ldap_server
