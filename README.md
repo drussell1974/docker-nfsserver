@@ -9,7 +9,7 @@ Download tar.gz
 
 1. Download build files
 
-> wget //github.com/drussell1974/docker-nfsserver/blob/master/nfs-server.tar.gz
+> wget https://raw.githubusercontent.com/drussell1974/docker-nfsserver/development/nfs-server.tar.gz
 
 2. Extract
 
