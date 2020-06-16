@@ -4,6 +4,26 @@ Docker NFS Server
 Hosting drussell1974/nfs-server
 =======================
 
+Download tar.gz
+---------------
+
+1. Download build files
+
+> wget //github.com/drussell1974/docker-nfsserver/blob/master/nfs-server.tar.gz
+
+2. Extract
+
+> tar -xzvf nfs-server.tar.gz 
+
+3. Copy examples
+
+> cp .env.example .env
+
+> cp docker-compose.yml.example docker-compose.yml
+
+Download individual files
+-------------------------
+
 1. Create a directory for the compose and build
 
 > mkdir -t nfs_server
