@@ -8,14 +8,14 @@ echo "portmap: 192.168.1.0" >> /etc/hosts.allow
 # requires NFS_IPADDR_ALLOWED environment variable
 
 
-echo "docker-entrypoint.sh: Allowing ${NFS_IPADDR_ALLOWED} to /mnt/nfs_share/${NFS_PUBLIC_PATH} in /etc/exports ..."
+echo "docker-entrypoint.sh: Allowing ${NFS_IPADDR_ALLOWED} to /mnt/nfs_share/public in /etc/exports ..."
 
-echo "/mnt/nfs_share/${NFS_PUBLIC_PATH} ${NFS_IPADDR_ALLOWED}(rw,sync,no_subtree_check)" > /etc/exports
+echo "/mnt/nfs_share/public ${NFS_IPADDR_ALLOWED}(rw,sync,no_subtree_check)" > /etc/exports
 
 
-echo "docker-entrypoint.sh: Allowing ${NFS_IPADDR_ALLOWED} to /mnt/nfs_share/${NFS_HOME_PATH} in /etc/exports ..."
+echo "docker-entrypoint.sh: Allowing ${NFS_IPADDR_ALLOWED} to /mnt/nfs_share/home in /etc/exports ..."
 
-echo "/mnt/nfs_share/${NFS_HOME_PATH} ${NFS_IPADDR_ALLOWED}(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
+echo "/mnt/nfs_share/home ${NFS_IPADDR_ALLOWED}(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 
 
 # refresh nfs service

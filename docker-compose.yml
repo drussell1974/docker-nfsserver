@@ -9,8 +9,6 @@ services:
                         - 2049:2049
                 environment:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
-                        - NFS_PUBLIC_PATH=${NFS_PUBLIC_PATH}
-                        - NFS_HOME_PATH=${NFS_HOME_PATH}
                 volumes:
                         - nfs-server_public:/mnt/nfs_share/public
                         - nfs-server_home:/mnt/nfs_share/home
