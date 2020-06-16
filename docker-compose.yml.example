@@ -1,7 +1,7 @@
 version: "3"
 services:
         nfs_server:
-                image: drussell1974/nfs-server:v0.0.9-alpha
+                image: drussell1974/nfs-server:release-v0.0.12-alpha
                 external_links:
                         - ldap_server
                 ports:
