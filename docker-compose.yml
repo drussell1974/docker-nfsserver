@@ -9,5 +9,8 @@ services:
                         - 2049:2049
                 environment:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
+                        - NFS_PUBLIC_DIR=${NFS_PUBLIC_PATH}
+                        - NFS_HOME_PATH=${NFS_HOME_PATH}
                 volumes:
-                        - "/media/dave/My\ Passport/home/:/mnt/nfs_share"
+                        - ${NFS_HOST_PUBLIC_PATH}:${NFS_PUBLIC_PATH}
+                        - ${NFS_HOST_HOME_PATH}:${NFS_HOME_PATH}
