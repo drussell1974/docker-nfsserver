@@ -11,7 +11,4 @@ services:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                         - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
                         - NFS_HOME_CONT=${NFS_HOME_CONT}
-                volumes:
-                        - mnt_nfs/public:${NFS_PUBLIC_CONT}
-                        - mnt_nfs/home:${NFS_HOME_CONT}
 
