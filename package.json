@@ -6,7 +6,11 @@
   "author": "Dave Russell",
   "license": "MIT",
   "repository": "https://github.com/drussell1974/docker-nfsserver",
-  "scripts" : {
-	  "build":"sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example   &&  tar --exclude-from=.gitignore -czvf  nfs-server.tar.gz docker-compose.yml.example .env.example build/Dockerfile build/docker-entrypoint.sh"
+  "pre-commit": [ "build" ],
+  "scripts": {
+    "build": "sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example   &&  tar --exclude-from=.gitignore -czvf  nfs-server.tar.gz docker-compose.yml.example .env.example build/Dockerfile build/docker-entrypoint.sh && git add nfs-server.tar.gz"
+  },
+  "dependencies": {
+    "pre-commit": "^1.2.2"
   }
 }
