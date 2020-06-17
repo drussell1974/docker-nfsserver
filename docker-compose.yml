@@ -7,9 +7,11 @@ services:
                         - ldap_server
                 ports:
                         - 2049:2049
-                          #- 111:111
                 environment:
                         - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
                         - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
                         - NFS_HOME_CONT=${NFS_HOME_CONT}
+                volumes:
+                        - /mnt/nfs_share/public:${NFS_PUBLIC_CONT}
+                        - /mnt/nfs_share/home:${NFS_HOME_CONT}
 
