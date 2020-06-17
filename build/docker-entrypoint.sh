@@ -3,6 +3,9 @@ echo "\ndocker-entrypoint.sh: changing options in port maps and allow sub net in
 perl -pi -e "s/^OPTIONS/#OPTIONS/" /etc/default/portmap
 echo "portmap: ${NFS_IPADDR_ALLOWED}" >> /etc/hosts.allow
 
+echo "\ndocker-entrypoint.sh: showing /etc/hosts.allow"
+cat /etc/hosts.allow
+
 # Give permission to subnet - e.g. /mnt/nfs_share/ 192.168.1.0/24(rw,sync,no_subtree_check)
 # requires NFS_IPADDR_ALLOWED environment variable
 
@@ -18,8 +21,8 @@ echo "NFS_DISABLE_V4=${NFS_DISABLE_V4}"
 # disable version 4 of nfs
 if [ ${NFS_DISABLE_V4:-false} = true ];then
 	echo "\ndocker-entrypoint.sh: disabling nfs version 4..."
-	sed -i "s/RPCMOUNTDOPTS=\"--manage-gids/RPCMOUNTDOPTS=\"--manage-gids --no-nfs-version 4/" /etc/default/nfs-kernel-server
-	cat /etc/default/nfs-kernel-server | grep 'RPCMOUNTDOPTS="--manage-gids'
+	sed -i "s/RPCMOUNTDCOUNT=\"8/RPCMOUNTDCOUNT=\"8 --no-nfs-version 4/" /etc/default/nfs-kernel-server
+	cat /etc/default/nfs-kernel-server | grep RPCMOUNTDCOUNT
 fi
 
 # refresh nfs service

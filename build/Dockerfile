@@ -1,9 +1,10 @@
-FROM 	debian:jessie
+FROM 	ubuntu
 ENV	NFS_WORK_DIR=/usr/nfs_server/
 ENV  	NFS_PUBLIC_CONT=nfs_share/public
 ENV	NFS_HOME_CONT=nfs_share/home
 
-RUN 	apt-get update && apt-get install -y nfs-kernel-server portmap
+RUN 	apt-get update && apt-get install -y nfs-kernel-server
+RUN 	apt-get update && apt-get install -y portmap
 
 RUN 	mkdir $NFS_WORK_DIR
 
