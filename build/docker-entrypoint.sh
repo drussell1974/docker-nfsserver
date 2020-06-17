@@ -16,13 +16,14 @@ echo "${NFS_PUBLIC_CONT} ${NFS_IPADDR_ALLOWED}(rw,sync,no_subtree_check)" >> /et
 echo "\ndocker-entrypoint.sh: allowing ${NFS_IPADDR_ALLOWED} to ${NFS_HOME_CONT} in /etc/exports ..."
 echo "${NFS_HOME_CONT} ${NFS_IPADDR_ALLOWED}(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 
-echo "NFS_DISABLE_V4=${NFS_DISABLE_V4}"
 
 # disable version 4 of nfs
-if [ ${NFS_DISABLE_V4:-false} = true ];then
-	cat /etc/default/nfs-kernel-server | grep RPCNFSDCOUNT
-	sed -i "s/RPCNFSDCOUNT=8/RPCNFSDCOUNT=8 --no-nfs-version 4/" /etc/default/nfs-kernel-server
-	cat /etc/default/nfs-kernel-server | grep RPCNFSDCOUNT
+echo "\ndocker-entrypoint.sh: NFS_DISABLE=${NFS_DISABLE} NFS_DISABLE_VERSION=${NFS_DISABLE_VERSION}"
+if [ ${NFS_DISABLE:-false} = true ];then
+	echo "\ndocker-entrypoint.sh: applying RPCMOUNTDOPTS --no-nfs-version ${NFS_DISABLE_VERSION} in /etc/default/nfs-kernel-server"
+	cat /etc/default/nfs-kernel-server | grep RPCMOUNTDOPTS
+	sed -i "s/RPCMOUNTDOPTS=\"--manage-gids/RPCMOUNTDOPTS=\"--manage-gids --no-nfs-version ${NFS_DISABLE_VERSION}/" /etc/default/nfs-kernel-server
+	cat /etc/default/nfs-kernel-server | grep RPCMOUNTDOPTS
 fi
 
 # refresh nfs service

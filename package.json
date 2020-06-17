@@ -8,7 +8,7 @@
   "repository": "https://github.com/drussell1974/docker-nfsserver",
   "pre-commit": [ "build" ],
   "scripts": {
-	  "build": "echo 'running tar -czvf ... > nfs-server.tar.gz' && sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example   &&  tar --exclude-from=.gitignore -czvf  nfs-server.tar.gz docker-compose.yml.example .env.example build/Dockerfile build/docker-entrypoint.sh && git add nfs-server.tar.gz"
+	  "build": "echo 'running tar -czvf ... > nfs-server.tar.gz' && sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example   &&  tar --exclude-from=.gitignore -czvf  nfs-server.tar.gz docker-compose.yml.example .env.example build/Dockerfile build/docker-entrypoint.sh && git add nfs-server.tar.gz docker-compose.yml.example"
   },
   "dependencies": {
     "pre-commit": "^1.2.2"
