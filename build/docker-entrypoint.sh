@@ -20,9 +20,9 @@ echo "NFS_DISABLE_V4=${NFS_DISABLE_V4}"
 
 # disable version 4 of nfs
 if [ ${NFS_DISABLE_V4:-false} = true ];then
-	echo "\ndocker-entrypoint.sh: disabling nfs version 4..."
-	sed -i "s/RPCMOUNTDCOUNT=\"8/RPCMOUNTDCOUNT=\"8 --no-nfs-version 4/" /etc/default/nfs-kernel-server
-	cat /etc/default/nfs-kernel-server | grep RPCMOUNTDCOUNT
+	cat /etc/default/nfs-kernel-server | grep RPCNFSDCOUNT
+	sed -i "s/RPCNFSDCOUNT=8/RPCNFSDCOUNT=8 --no-nfs-version 4/" /etc/default/nfs-kernel-server
+	cat /etc/default/nfs-kernel-server | grep RPCNFSDCOUNT
 fi
 
 # refresh nfs service
