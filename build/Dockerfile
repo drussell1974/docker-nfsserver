@@ -1,10 +1,9 @@
-FROM 	ubuntu
+FROM 	debian:jessie
 ENV	NFS_WORK_DIR=/usr/nfs_server/
 ENV  	NFS_PUBLIC_CONT=nfs_share/public
 ENV	NFS_HOME_CONT=nfs_share/home
 
 RUN 	apt-get update && apt-get install -y nfs-kernel-server
-RUN 	apt-get update && apt-get install -y portmap
 
 RUN 	mkdir $NFS_WORK_DIR
 
@@ -21,4 +20,4 @@ COPY 	docker-entrypoint.sh .
 
 ENTRYPOINT "/usr/nfs_server/docker-entrypoint.sh"
 
-EXPOSE 	2049
+EXPOSE 	2049 111
